@@ -23,6 +23,11 @@ const map = (elements, cb) => {
   // Do NOT use .map, to complete this function.
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
+  const newElements = [];
+  for (let i = 0; i < elements.length; i++) {
+    newElements.push(cb(elements[i], i));
+  }
+  return newElements;
 };
 
 const reduce = (elements, cb, startingValue) => {
