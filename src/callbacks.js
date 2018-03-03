@@ -41,7 +41,16 @@ const removeDuplicates = (array, cb) => {
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
   const dupesObj = {};
-  const dupesArr = array;
+  const uniqArray = array.filter((item, i) => {
+    if (dupesObj[item]) {
+      dupesObj[item] += 1;
+    } else {
+      dupesObj[item] = 1;
+      return item;
+    }
+    return undefined;
+  });
+  cb(uniqArray);
 };
 
 /* eslint-enable */
